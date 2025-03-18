@@ -4,33 +4,33 @@ A simple to-do application that allows users to manage their tasks efficiently. 
 
 ## Functionality
 
-A hardcoded list of to-do items is displayed on page load.
+- A hardcoded list of to-do items is displayed on page load.
 
-Users can add new to-dos using a popup form.
+- Users can add new to-dos using a popup form.
 
-Form validation ensures that input data meets requirements before submission.
+- Form validation ensures that input data meets requirements before submission.
 
-Each to-do item can be marked as completed or deleted.
+- Each to-do item can be marked as completed or deleted.
 
-A unique ID is generated for each to-do using the uuid package.
+- A unique ID is generated for each to-do using the uuid package.
 
-The project is structured using JavaScript modules to maintain clean, reusable code.
+- The project is structured using JavaScript modules to maintain clean, reusable code.
 
 ## Technology
 
 This project is built using the following technologies and methodologies:
 
-HTML, CSS, JavaScript for building the front-end UI.
+- HTML, CSS, JavaScript for building the front-end UI.
 
-Object-Oriented Programming (OOP) to enhance code modularity.
+- Object-Oriented Programming (OOP) to enhance code modularity.
 
-JavaScript Modules for better file organization.
+- JavaScript Modules for better file organization.
 
-ES6+ Syntax including import/export statements.
+- ES6+ Syntax including import/export statements.
 
-Form Validation implemented in FormValidator.js.
+- Form Validation implemented in FormValidator.js.
 
-UUID Package (uuidv4()) for generating unique to-do IDs.
+- UUID Package (uuidv4()) for generating unique to-do IDs.
 
 ## Deployment
 
