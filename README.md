@@ -36,4 +36,5 @@ This project is built using the following technologies and methodologies:
 
 This project is deployed on GitHub Pages:
 
--https://alaarajab.github.io/se_project_todo-app/
+- This webpage is deploye to GitHub Pages.
+- [Link to the project on GitHub](https://alaarajab.github.io/se_project_todo-app/)
