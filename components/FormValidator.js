@@ -1,6 +1,6 @@
 export default class FormValidator {
   constructor(settings, formElement) {
-    this._settings = settings; // Store settings in the class instance
+    this._settings = settings;
     this._formElement = formElement;
     this._inputList = Array.from(
       formElement.querySelectorAll(this._settings.inputSelector)
@@ -10,7 +10,6 @@ export default class FormValidator {
     );
   }
 
-  // Private method to show input error
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
@@ -20,7 +19,6 @@ export default class FormValidator {
     errorElement.classList.add(this._settings.errorClass);
   }
 
-  // Private method to hide input error
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
@@ -30,7 +28,6 @@ export default class FormValidator {
     errorElement.textContent = "";
   }
 
-  // Private method to check input validity
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
@@ -39,12 +36,10 @@ export default class FormValidator {
     }
   }
 
-  // Private method to check if any input is invalid
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
-  // Private method to toggle button state based on input validity
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._settings.inactiveButtonClass);
@@ -55,7 +50,6 @@ export default class FormValidator {
     }
   }
 
-  // Private method to add event listeners to inputs
   _setEventListeners() {
     this._toggleButtonState(); // Initial button state
     this._inputList.forEach((inputElement) => {
@@ -66,13 +60,11 @@ export default class FormValidator {
     });
   }
 
-  // Public method to enable validation
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => evt.preventDefault()); // Prevent form submission
     this._setEventListeners();
   }
 
-  // Public method to reset form and disable submit button
   resetValidation() {
     this._inputList.forEach((inputElement) =>
       this._hideInputError(inputElement)
