@@ -1,4 +1,4 @@
-const showInputError = (formElement, inputElement, errorMessage, settings) => {
+/*const showInputError = (formElement, inputElement, errorMessage, settings) => {
   const errorElementId = `#${inputElement.id}-error`;
   const errorElement = formElement.querySelector(errorElementId);
   inputElement.classList.add(settings.inputErrorClass);
@@ -69,4 +69,4 @@ const enableValidation = (settings) => {
   setEventListeners(formElement, settings);
 };
 
-enableValidation(validationConfig);
+enableValidation(validationConfig);*/
