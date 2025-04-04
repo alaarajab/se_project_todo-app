@@ -4,19 +4,16 @@ export default class Popup {
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
   }
 
-  // Opens the popup
   open() {
     this._popup.classList.add("popup_visible");
     document.addEventListener("keyup", this._handleEscapeClose);
   }
 
-  // Closes the popup
   close() {
     this._popup.classList.remove("popup_visible");
     document.removeEventListener("keyup", this._handleEscapeClose);
   }
 
-  // Private method: Handles closing the popup with the Escape key
   _handleEscapeClose(event) {
     if (event.key === "Escape") {
       this.close();

@@ -9,12 +9,24 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
 
-// Generates the todo element from a template using the Todo class
+// Generates the todo element from a template using the Todo class in Todo file
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getView();
   return todoElement;
 };
+//rewite that in Popup file
+/*open() {
+  add("popup_visible");
+  document.addEventListener("keyup", this._handleEscapeClose);
+}
+
+// Closes the popup
+close() {
+remove("popup_visible");
+  document.removeEventListener("keyup", this._handleEscapeClose);
+}*/
+
 // Create a Section instance to manage todos
 const section = new Section({
   items: initialTodos,
