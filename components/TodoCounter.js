@@ -6,13 +6,24 @@ export default class TodoCounter {
     this._updateText();
   }
 
-  updateCompleted = (increment) => {
-    this._completed += increment ? 1 : -1;
+  updateCompleted = (isNowCompleted) => {
+    this._completed += isNowCompleted ? 1 : -1;
     this._updateText();
   };
 
-  updateTotal = (increment) => {
-    this._total += increment ? 1 : -1;
+  incrementTotal = () => {
+    this._total += 1;
+    this._updateText();
+  };
+
+  decrementTotal = () => {
+    this._total -= 1;
+    this._updateText();
+  };
+
+  setCounts = (completed, total) => {
+    this._completed = completed;
+    this._total = total;
     this._updateText();
   };
 

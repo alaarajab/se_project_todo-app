@@ -24,19 +24,15 @@ function handleDelete(isCompleted) {
 }
 
 // Generates the todo element from a template using the Todo class in Todo file
-/*const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template");
-  const todoElement = todo.getView();
-  return todoElement;
-};*/
+
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template", handleCheck, () =>
     handleDelete(data.completed)
   );
-  return todo.getView();
+  const todoElement = todo.getView();
+  return todoElement;
 };
 
-//rewite that in Popup file
 /*open() {
   add("popup_visible");
   document.addEventListener("keyup", this._handleEscapeClose);
@@ -77,11 +73,12 @@ const addToPopup = new PopupWithForm({
       name,
       date: adjustedDate,
       id: uuidv4(),
+      //completed: false,
     });
 
     // Add todo to the list
     section.addItem(todoElement);
-
+    todoCounter.incrementTotal();
     // Close popup and reset form validation
     addToPopup.close();
     newTodoValidator.resetValidation();
