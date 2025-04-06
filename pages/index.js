@@ -9,15 +9,33 @@ import TodoCounter from "../components/TodoCounter.js";
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
-
-const todoCounter = new TodoCounter(initialTodos, "counter__text");
+// Create counter
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
+// Function to handle check/uncheck
+function handleCheck(isNowCompleted) {
+  todoCounter.updateCompleted(isNowCompleted);
+}
+// Function to handle delete
+function handleDelete(isCompleted) {
+  todoCounter.decrementTotal();
+  if (isCompleted) {
+    todoCounter.updateCompleted(false);
+  }
+}
 
 // Generates the todo element from a template using the Todo class in Todo file
-const generateTodo = (data) => {
+/*const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getView();
   return todoElement;
+};*/
+const generateTodo = (data) => {
+  const todo = new Todo(data, "#todo-template", handleCheck, () =>
+    handleDelete(data.completed)
+  );
+  return todo.getView();
 };
+
 //rewite that in Popup file
 /*open() {
   add("popup_visible");

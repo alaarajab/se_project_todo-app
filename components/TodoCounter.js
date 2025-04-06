@@ -5,4 +5,18 @@ export default class TodoCounter {
     this._total = todos.length;
     this._updateText();
   }
+
+  updateCompleted = (increment) => {
+    this._completed += increment ? 1 : -1;
+    this._updateText();
+  };
+
+  updateTotal = (increment) => {
+    this._total += increment ? 1 : -1;
+    this._updateText();
+  };
+
+  _updateText() {
+    this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
+  }
 }
