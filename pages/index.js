@@ -70,9 +70,6 @@ const addToPopup = new PopupWithForm({
   },
 });
 
-/*const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
-const todosList = document.querySelector(".todos__list");*/
-
 // Open popup when add button is clicked
 addTodoButton.addEventListener("click", () => {
   addToPopup.open();
