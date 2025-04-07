@@ -39,17 +39,6 @@ const generateTodo = (data) => {
   return todo.getView();
 };
 
-/*open() {
-  add("popup_visible");
-  document.addEventListener("keyup", this._handleEscapeClose);
-}
-
-// Closes the popup
-close() {
-remove("popup_visible");
-  document.removeEventListener("keyup", this._handleEscapeClose);
-}*/
-
 // Create a Section instance to manage todos
 const section = new Section({
   items: initialTodos,
@@ -68,7 +57,6 @@ const addToPopup = new PopupWithForm({
   handleFormSubmit: (inputValues) => {
     const { name, date } = inputValues;
 
-    // Create a date object and adjust for timezone
     const adjustedDate = new Date(date + "T00:00");
     adjustedDate.setMinutes(
       adjustedDate.getMinutes() + adjustedDate.getTimezoneOffset()
@@ -85,7 +73,7 @@ const addToPopup = new PopupWithForm({
     // Add todo to the list
     section.addItem(todoElement);
     todoCounter.updateTotal(true);
-    // Close popup and reset form validation
+
     addToPopup.close();
     newTodoValidator.resetValidation();
   },
@@ -99,9 +87,7 @@ addTodoButton.addEventListener("click", () => {
   addToPopup.open();
 });
 
-// Set up popup event listeners
 addToPopup.setEventListeners();
 
-// Create and enable form validation
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();

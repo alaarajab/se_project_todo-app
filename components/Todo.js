@@ -16,13 +16,15 @@ class Todo {
       const wasCompleted = this._data.completed;
       this._data.completed = !wasCompleted;
       if (this._handleCheck) {
-        this._handleCheck(!wasCompleted); // true if now completed
+        // true if now completed
+        this._handleCheck(!wasCompleted);
       }
     });
 
     this._todoDeleteBtn.addEventListener("click", () => {
       if (this._handleDelete) {
-        this._handleDelete(this._todoCheckboxEl.checked); // use current checkbox state
+        // use current checkbox state
+        this._handleDelete(this._todoCheckboxEl.checked);
       }
       this._todoElement.remove();
       console.log(`Deleted: ${this._data.name}`);
