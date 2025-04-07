@@ -17,7 +17,7 @@ function handleCheck(isNowCompleted) {
 }
 // Function to handle delete
 function handleDelete(isCompleted) {
-  todoCounter.decrementTotal(false);
+  todoCounter.updateTotal(false);
   if (isCompleted) {
     todoCounter.updateCompleted(false);
   }
@@ -25,12 +25,18 @@ function handleDelete(isCompleted) {
 
 // Generates the todo element from a template using the Todo class in Todo file
 
-const generateTodo = (data) => {
+/*const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template", handleCheck, () =>
     handleDelete(data.completed)
   );
   const todoElement = todo.getView();
   return todoElement;
+};*/
+const generateTodo = (data) => {
+  const todo = new Todo(data, "#todo-template", handleCheck, (isCompleted) =>
+    handleDelete(isCompleted)
+  );
+  return todo.getView();
 };
 
 /*open() {
@@ -73,12 +79,12 @@ const addToPopup = new PopupWithForm({
       name,
       date: adjustedDate,
       id: uuidv4(),
-      //completed: false,
+      completed: false,
     });
 
     // Add todo to the list
     section.addItem(todoElement);
-    todoCounter.incrementTotal();
+    todoCounter.updateTotal(true);
     // Close popup and reset form validation
     addToPopup.close();
     newTodoValidator.resetValidation();
