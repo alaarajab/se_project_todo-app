@@ -25,27 +25,21 @@ function handleDelete(isCompleted) {
 
 // Generates the todo element from a template using the Todo class in Todo file
 
-/*const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template", handleCheck, () =>
-    handleDelete(data.completed)
-  );
-  const todoElement = todo.getView();
-  return todoElement;
-};*/
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template", handleCheck, (isCompleted) =>
     handleDelete(isCompleted)
   );
   return todo.getView();
 };
+const renderTodo = (item) => {
+  const todoElement = generateTodo(item);
+  section.addItem(todoElement);
+};
 
 // Create a Section instance to manage todos
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    const todoElement = generateTodo(item);
-    section.addItem(todoElement);
-  },
+  renderer: renderTodo,
   containerSelector: ".todos__list",
 });
 // Render initial todos on page load
@@ -62,16 +56,13 @@ const addToPopup = new PopupWithForm({
       adjustedDate.getMinutes() + adjustedDate.getTimezoneOffset()
     );
 
-    // Generate a new todo
-    const todoElement = generateTodo({
+    renderTodo({
       name,
       date: adjustedDate,
       id: uuidv4(),
       completed: false,
     });
 
-    // Add todo to the list
-    section.addItem(todoElement);
     todoCounter.updateTotal(true);
 
     addToPopup.close();
