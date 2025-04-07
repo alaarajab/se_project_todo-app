@@ -17,7 +17,7 @@ function handleCheck(isNowCompleted) {
 }
 // Function to handle delete
 function handleDelete(isCompleted) {
-  todoCounter.decrementTotal();
+  todoCounter.decrementTotal(false);
   if (isCompleted) {
     todoCounter.updateCompleted(false);
   }
